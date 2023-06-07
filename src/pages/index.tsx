@@ -5,7 +5,7 @@ import { getAllPosts } from '../data/posts/get-all-posts';
 import HomePage from '@/containers/Homepage';
 
 export type HomeProps = {
-  posts: PostData[];
+  posts: PostData;
 };
 
 export default function Home({ posts }: HomeProps) {

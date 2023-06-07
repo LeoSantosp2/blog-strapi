@@ -6,7 +6,7 @@ import { PostCard } from '@/components/PostCard';
 import { Footer } from '@/components/Footer';
 
 export type HomePageProps = {
-  posts: PostData[];
+  posts: PostData;
 };
 
 export default function HomePage({ posts }: HomePageProps) {

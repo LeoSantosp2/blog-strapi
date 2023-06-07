@@ -1,12 +1,14 @@
+import { GetStaticPaths, GetStaticProps } from 'next';
+import { Context } from 'vm';
+
 import { Post } from '@/containers/Post';
 import { countAllPosts } from '@/data/posts/count-all-posts';
 import { getAllPosts } from '@/data/posts/get-all-posts';
 import { getPost } from '@/data/posts/get-post';
 import { PostData } from '@/domain/posts/post';
-import { GetStaticPaths, GetStaticProps } from 'next';
 
 export type DynamicPostProps = {
-  post: PostData;
+  post: PostData[];
 };
 
 const DynamicPost = ({ post }: DynamicPostProps) => {
@@ -31,7 +33,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-export const getStaticProps: GetStaticProps = async (ctx) => {
+export const getStaticProps: GetStaticProps = async (ctx: Context) => {
   const posts = await getPost(ctx.params.slug);
 
   return {

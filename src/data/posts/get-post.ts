@@ -8,11 +8,11 @@ export const getPost = async (slug: string | string[]): Promise<PostData[]> => {
 
   const url = `${POSTS_URL}&filters[slug][$eq]=${slugString}`;
 
-  const jsonPosts = await fetchJson<PostData[]>(url);
+  const jsonPosts = await fetchJson<PostData>(url);
 
   const content = await markdownToHtml(jsonPosts.data[0].attributes.content);
 
-  const finalContent = { ...jsonPosts.data[0].attributes, content };
+  const finalContent = { ...jsonPosts, content };
 
   return [finalContent];
 };
