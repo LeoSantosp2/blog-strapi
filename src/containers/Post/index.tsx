@@ -40,7 +40,7 @@ export const Post = ({ post }: PostProps) => {
 
             <PostContainer
               key={response.data[0].id}
-              content={response.data[0].attributes.content}
+              content={response.content}
             />
 
             <Comments
