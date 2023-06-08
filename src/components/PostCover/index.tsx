@@ -7,5 +7,5 @@ export type PostCoverProps = {
 };
 
 export const PostCover = ({ coverUrl, alt }: PostCoverProps) => {
-  return <Container src={`${coverUrl}`} alt={alt} />;
+  return <Container src={`${API_URL}${coverUrl}`} alt={alt} />;
 };
